@@ -1,0 +1,968 @@
+#VRML_SIM R2022b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the rover
+# Extracted from: /home/joel/Documents/UGRT/rover_simulation_env/docker_env/int_pkgs/rover_description/urdf/rover.urdf
+
+PROTO Rover [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Rover"  # Is `Robot.name`.
+  field  SFString    controller      "<extern>"   # Is `Robot.controller`.
+  field  MFString    controllerArgs  []       # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""       # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE    # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE     # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE    # Is `Robot.selfCollision`.
+  field  SFString    window         "<generic>"  # Is `Robot.window`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    window IS window
+    name IS name
+    model "rover"
+    children [
+      Shape {
+        appearance DEF rover_base_link_material PBRAppearance {
+          baseColor 1.000000 0.000000 0.000000
+          roughness 1.000000
+          metalness 0
+        }
+        geometry DEF rover_chassis Mesh {
+          url "../meshes/rover_chassis.stl"
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.703279 0.000000 0.710914
+          anchor 0.330000 0.000000 0.100000
+        }
+        device [
+          RotationalMotor {
+            name "drillbit_selector"
+            maxVelocity 1.0
+            minPosition -3.14
+            maxPosition 3.14
+            maxTorque 50.0
+          }
+          PositionSensor {
+            name "drillbit_selector_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.330000 0.000000 0.100000
+          rotation 0.000000 1.000000 0.000000 0.780000
+          children [
+            Shape {
+              appearance DEF soil_sample_link_material PBRAppearance {
+                baseColor 1.000000 0.000000 0.000000
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF soil_sample_holder Mesh {
+                url "../meshes/soil_sample_holder.stl"
+              }
+            }
+          ]
+          name "soil_sample_link"
+          boundingObject USE soil_sample_holder
+          physics Physics {
+            density -1
+            mass 0.393800
+            centerOfMass [ 0.000000 0.000000 0.000000 ]
+            inertiaMatrix [
+              1.800000e-03 1.700000e-03 5.000000e-04
+              0.000000e+00 0.000000e+00 -1.000000e-04
+            ]
+          }
+        }
+      }
+      Solid {
+        translation 0.010000 0.020000 0.876000
+        children [
+          Transform {
+            translation 0.014900 -0.017500 0.000000
+            rotation 0.577350 0.577350 0.577350 2.094395
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.500000 0.500000 0.500000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                   size 0.090000 0.025000 0.025050
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 0.5
+            children [
+              Camera {
+                name "zedtwo_realsensecolor"
+                fieldOfView 1.211259
+                width 1280
+                height 720
+                noise 0.007000
+              }
+            ]
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 0.5
+            children [
+              RangeFinder {
+                name "zedtwo_realsensedepth"
+                fieldOfView 1.487021
+                width 1280
+                height 720
+                noise 0.100000
+                minRange 0.100000
+                maxRange 20.000000
+              }
+            ]
+          }
+        ]
+        name "zedtwo_realsense_link"
+        boundingObject Transform {
+          translation 0.000000 -0.017500 0.000000
+          children [
+            Box {
+               size 0.025050 0.090000 0.025000
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.100000
+          centerOfMass [ 0.002500 -0.015000 0.000000 ]
+          inertiaMatrix [
+            7.270833e-05 1.041667e-05 1.041667e-05
+            0.000000e+00 0.000000e+00 0.000000e+00
+          ]
+        }
+      }
+      Solid {
+        translation -0.350000 -0.020000 0.000000
+        rotation 0.000000 0.000000 1.000000 3.141593
+        children [
+          Transform {
+            translation 0.014900 -0.017500 0.000000
+            rotation 0.577350 0.577350 0.577350 2.094395
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.500000 0.500000 0.500000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry Box {
+                   size 0.090000 0.025000 0.025050
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 2.094395
+            children [
+              Camera {
+                name "rear_realsensecolor"
+                fieldOfView 1.211259
+                width 1280
+                height 720
+                noise 0.007000
+              }
+            ]
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 2.094395
+            children [
+              RangeFinder {
+                name "rear_realsensedepth"
+                fieldOfView 1.487021
+                width 1280
+                height 720
+                noise 0.100000
+                near 0.100000
+                minRange 0.100000
+              }
+            ]
+          }
+        ]
+        name "rear_realsense_link"
+        boundingObject Transform {
+          translation 0.000000 -0.017500 0.000000
+          children [
+            Box {
+               size 0.025050 0.090000 0.025000
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.100000
+          centerOfMass [ 0.002500 -0.015000 0.000000 ]
+          inertiaMatrix [
+            7.270833e-05 1.041667e-05 1.041667e-05
+            0.000000e+00 0.000000e+00 0.000000e+00
+          ]
+        }
+      }
+      Solid {
+        children [
+          Shape {
+            appearance DEF gps_link_material PBRAppearance {
+              baseColor 1.000000 0.000000 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+               size 0.010000 0.010000 0.010000
+            }
+          }
+        ]
+        name "gps_link"
+        boundingObject Box {
+           size 0.001000 0.001000 0.001000
+        }
+        physics Physics {
+          density -1
+          mass 1.000000
+        }
+      }
+      Solid {
+        translation 0.000000 0.185000 0.300000
+        rotation 0.000000 0.000000 1.000000 1.570796
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+               size 0.010000 0.010000 0.010000
+            }
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 2.094395
+            children [
+              # Camera {
+              #   name "left_camera"
+              #   fieldOfView 1.396263
+              #   width 800
+              #   height 800
+              #   noise 0.007000
+              # }
+            ]
+          }
+        ]
+        name "left_fisheye_camera"
+        boundingObject Box {
+           size 0.010000 0.010000 0.010000
+        }
+        physics Physics {
+          density -1
+          mass 0.020000
+        }
+      }
+      Solid {
+        translation 0.000000 -0.185000 0.300000
+        rotation 0.000000 0.000000 -1.000000 1.570796
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+               size 0.010000 0.010000 0.010000
+            }
+          }
+          Transform {
+            translation 0 0 0
+            rotation 0.577350 -0.577350 0.577350 2.094395
+            children [
+              # Camera {
+              #   name "right_camera"
+              #   fieldOfView 1.396263
+              #   width 800
+              #   height 800
+              #   noise 0.007000
+              # }
+            ]
+          }
+        ]
+        name "right_fisheye_camera"
+        boundingObject Box {
+           size 0.010000 0.010000 0.010000
+        }
+        physics Physics {
+          density -1
+          mass 0.020000
+        }
+      }
+      Solid {
+        translation 0.083500 0.250000 0.143000
+        children [
+          Shape {
+            appearance DEF R_rocker_link_material PBRAppearance {
+              baseColor 1.000000 0.000000 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF rocker Mesh {
+              url "../meshes/rocker.stl"
+            }
+          }
+          Solid {
+            translation -0.350000 0.052500 -0.051160
+            children [
+              Shape {
+                appearance DEF R_bogey_link_material PBRAppearance {
+                  baseColor 1.000000 0.000000 0.000000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry DEF bogie Mesh {
+                  url "../meshes/bogie.stl"
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.000000 0.000000 1.000000
+                  anchor 0.148260 0.000000 -0.168310
+                }
+                device [
+                  RotationalMotor {
+                    name "three_steering_joint"
+                    maxVelocity 1.0
+                    minPosition -1.5707
+                    maxPosition 1.5707
+                    maxTorque 20.0
+                  }
+                  PositionSensor {
+                    name "three_steering_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0.148260 0.000000 -0.168310
+                  rotation 0.000000 0.000000 1.000000 3.141593
+                  children [
+                    Shape {
+                      appearance DEF three_wheel_mount_material PBRAppearance {
+                        baseColor 1.000000 0.000000 0.000000
+                        roughness 1.000000
+                        metalness 0
+                      }
+                      geometry DEF wheel_mount Mesh {
+                        url "../meshes/wheel_mount.stl"
+                      }
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0.000000 -1.000000 0.000096
+                        anchor 0.000000 0.000000 -0.075430
+                      }
+                      device [
+                        RotationalMotor {
+                          name "three_drive_joint"
+                          maxTorque 10000
+                        }
+                        PositionSensor {
+                          name "three_drive_joint_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.000000 0.000000 -0.075430
+                        rotation 1.000000 0.000000 0.000000 1.570700
+                        contactMaterial "Wheel"
+                        
+                        children [
+                          Shape {
+                            appearance DEF three_wheel_material PBRAppearance {
+                              baseColor 1.000000 0.000000 0.000000
+                              roughness 1.000000
+                              metalness 0
+                            }
+                            geometry Cylinder {
+                              radius 0.1029
+                              height 0.0495
+                            }
+                          }
+                        ]
+                        name "three_wheel"
+                        boundingObject Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.898160
+                          centerOfMass [ 0.000000 0.000000 0.000000 ]
+                          inertiaMatrix [
+                            1.458330e-01 1.458330e-01 1.250000e-01
+                            0.000000e+00 0.000000e+00 0.000000e+00
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "three_wheel_mount"
+                  boundingObject USE wheel_mount
+                  physics Physics {
+                    density -1
+                    mass 0.434000
+                    centerOfMass [ 0.000000 0.030000 0.090000 ]
+                    inertiaMatrix [
+                      5.596220e-03 3.608400e-03 6.086000e-03
+                      0.000000e+00 0.000000e+00 0.000000e+00
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.000000 0.000000 1.000000
+                  anchor -0.148260 0.000000 -0.168310
+                }
+                device [
+                  RotationalMotor {
+                    name "five_steering_joint"
+                    maxVelocity 1.0
+                    minPosition -1.5707
+                    maxPosition 1.5707
+                    maxTorque 20.0
+                  }
+                  PositionSensor {
+                    name "five_steering_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.148260 0.000000 -0.168310
+                  rotation 0.000000 0.000000 1.000000 3.141593
+                  children [
+                    Shape {
+                      appearance DEF five_wheel_mount_material PBRAppearance {
+                        baseColor 1.000000 0.000000 0.000000
+                        roughness 1.000000
+                        metalness 0
+                      }
+                      geometry USE wheel_mount
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0.000000 -1.000000 0.000096
+                        anchor 0.000000 0.000000 -0.075430
+                      }
+                      device [
+                        RotationalMotor {
+                          name "five_drive_joint"
+                          maxTorque 10000
+                        }
+                        PositionSensor {
+                          name "five_drive_joint_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.000000 0.000000 -0.075430
+                        rotation 1.000000 0.000000 0.000000 1.570700
+                        contactMaterial "Wheel"
+                        children [
+                          Shape {
+                            appearance DEF five_wheel_material PBRAppearance {
+                              baseColor 1.000000 0.000000 0.000000
+                              roughness 1.000000
+                              metalness 0
+                            }
+                            geometry Cylinder {
+                              radius 0.1029
+                              height 0.0495
+                            }
+                          }
+                        ]
+                        name "five_wheel"
+                        boundingObject Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.898160
+                          centerOfMass [ 0.000000 0.000000 0.000000 ]
+                          inertiaMatrix [
+                            1.458330e-01 1.458330e-01 1.250000e-01
+                            0.000000e+00 0.000000e+00 0.000000e+00
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "five_wheel_mount"
+                  boundingObject USE wheel_mount
+                  physics Physics {
+                    density -1
+                    mass 0.434000
+                    centerOfMass [ 0.000000 0.030000 0.090000 ]
+                    inertiaMatrix [
+                      5.596220e-03 3.608400e-03 6.086000e-03
+                      0.000000e+00 0.000000e+00 0.000000e+00
+                    ]
+                  }
+                }
+              }
+            ]
+            name "R_bogey_link"
+            boundingObject USE bogie
+            physics Physics {
+              density -1
+              mass 0.531000
+              centerOfMass [ 0.000000 0.015900 0.049100 ]
+              inertiaMatrix [
+                7.470000e-02 6.950000e-02 6.300000e-03
+                -1.500000e-03 -5.300000e-03 1.820000e-02
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.318760 0.000000 -0.221520
+            }
+            device [
+              RotationalMotor {
+                name "one_steering_joint"
+                maxVelocity 1.0
+                minPosition -1.5707
+                maxPosition 1.5707
+                maxTorque 20.0
+              }
+              PositionSensor {
+                name "one_steering_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.318760 0.000000 -0.221520
+              rotation 0.000000 0.000000 1.000000 3.141593
+              children [
+                Shape {
+                  appearance DEF one_wheel_mount_material PBRAppearance {
+                    baseColor 1.000000 0.000000 0.000000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry USE wheel_mount
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 -1.000000 0.000096
+                    anchor 0.000000 0.000000 -0.075430
+                  }
+                  device [
+                    RotationalMotor {
+                      name "one_drive_joint"
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "one_drive_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 -0.075430
+                    rotation 1.000000 0.000000 0.000000 1.570700
+                    contactMaterial "Wheel"
+                    children [
+                      Shape {
+                        appearance DEF one_wheel_material PBRAppearance {
+                          baseColor 1.000000 0.000000 0.000000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                      }
+                    ]
+                    name "one_wheel"
+                    boundingObject Cylinder {
+                      radius 0.1029
+                      height 0.0495
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.898160
+                      centerOfMass [ 0.000000 0.000000 0.000000 ]
+                      inertiaMatrix [
+                        1.458330e-01 1.458330e-01 1.250000e-01
+                        0.000000e+00 0.000000e+00 0.000000e+00
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "one_wheel_mount"
+              boundingObject USE wheel_mount
+              physics Physics {
+                density -1
+                mass 0.434000
+                centerOfMass [ 0.000000 0.030000 0.090000 ]
+                inertiaMatrix [
+                  5.596220e-03 3.608400e-03 6.086000e-03
+                  0.000000e+00 0.000000e+00 0.000000e+00
+                ]
+              }
+            }
+          }
+        ]
+        name "R_rocker_link"
+        boundingObject USE rocker
+        physics Physics {
+          density -1
+          mass 2.691650
+          centerOfMass [ 0.006700 -0.013205 0.034620 ]
+          inertiaMatrix [
+            7.620000e-02 7.410000e-02 1.690000e-02
+            1.800000e-03 3.000000e-04 -8.200000e-03
+          ]
+        }
+      }
+      Solid {
+        translation 0.083500 -0.250000 0.143000
+        children [
+          Shape {
+            appearance DEF L_rocker_link_material PBRAppearance {
+              baseColor 1.000000 0.000000 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry USE rocker
+          }
+          Solid {
+            translation -0.350000 -0.052500 -0.051160
+            children [
+              Shape {
+                appearance DEF L_bogey_link_material PBRAppearance {
+                  baseColor 1.000000 0.000000 0.000000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry USE bogie
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.000000 0.000000 1.000000
+                  anchor 0.148260 0.000000 -0.168310
+                }
+                device [
+                  RotationalMotor {
+                    name "four_steering_joint"
+                    maxVelocity 1.0
+                    minPosition -1.5707
+                    maxPosition 1.5707
+                    maxTorque 20.0
+                  }
+                  PositionSensor {
+                    name "four_steering_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0.148260 0.000000 -0.168310
+                  children [
+                    Shape {
+                      appearance DEF four_wheel_mount_material PBRAppearance {
+                        baseColor 1.000000 0.000000 0.000000
+                        roughness 1.000000
+                        metalness 0
+                      }
+                      geometry USE wheel_mount
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0.000000 1.000000 -0.000096
+                        anchor 0.000000 0.000000 -0.075430
+                      }
+                      device [
+                        RotationalMotor {
+                          name "four_drive_joint"
+                          maxTorque 10000
+                        }
+                        PositionSensor {
+                          name "four_drive_joint_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.000000 0.000000 -0.075430
+                        rotation 1.000000 0.000000 0.000000 1.570700
+                        contactMaterial "Wheel"
+                        children [
+                          Shape {
+                            appearance DEF four_wheel_material PBRAppearance {
+                              baseColor 1.000000 0.000000 0.000000
+                              roughness 1.000000
+                              metalness 0
+                            }
+                            geometry Cylinder {
+                              radius 0.1029
+                              height 0.0495
+                            }
+                          }
+                        ]
+                        name "four_wheel"
+                        boundingObject Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.898160
+                          centerOfMass [ 0.000000 0.000000 0.000000 ]
+                          inertiaMatrix [
+                            1.458330e-01 1.458330e-01 1.250000e-01
+                            0.000000e+00 0.000000e+00 0.000000e+00
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "four_wheel_mount"
+                  boundingObject USE wheel_mount
+                  physics Physics {
+                    density -1
+                    mass 0.434000
+                    centerOfMass [ 0.000000 0.030000 0.090000 ]
+                    inertiaMatrix [
+                      5.596220e-03 3.608400e-03 6.086000e-03
+                      0.000000e+00 0.000000e+00 0.000000e+00
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.000000 0.000000 1.000000
+                  anchor -0.148260 0.000000 -0.168310
+                }
+                device [
+                  RotationalMotor {
+                    name "six_steering_joint"
+                    maxVelocity 1.0
+                    minPosition -1.5707
+                    maxPosition 1.5707
+                    maxTorque 20.0
+                  }
+                  PositionSensor {
+                    name "six_steering_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.148260 0.000000 -0.168310
+                  children [
+                    Shape {
+                      appearance DEF six_wheel_mount_material PBRAppearance {
+                        baseColor 1.000000 0.000000 0.000000
+                        roughness 1.000000
+                        metalness 0
+                      }
+                      geometry USE wheel_mount
+                    }
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0.000000 1.000000 -0.000096
+                        anchor 0.000000 0.000000 -0.075430
+                      }
+                      device [
+                        RotationalMotor {
+                          name "six_drive_joint"
+                          maxTorque 10000
+                        }
+                        PositionSensor {
+                          name "six_drive_joint_sensor"
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.000000 0.000000 -0.075430
+                        rotation 1.000000 0.000000 0.000000 1.570700
+                        contactMaterial "Wheel"
+                        children [
+                          Shape {
+                            appearance DEF six_wheel_material PBRAppearance {
+                              baseColor 1.000000 0.000000 0.000000
+                              roughness 1.000000
+                              metalness 0
+                            }
+                            geometry Cylinder {
+                              radius 0.1029
+                              height 0.0495
+                            }
+                          }
+                        ]
+                        name "six_wheel"
+                        boundingObject Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.898160
+                          centerOfMass [ 0.000000 0.000000 0.000000 ]
+                          inertiaMatrix [
+                            1.458330e-01 1.458330e-01 1.250000e-01
+                            0.000000e+00 0.000000e+00 0.000000e+00
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                  name "six_wheel_mount"
+                  boundingObject USE wheel_mount
+                  physics Physics {
+                    density -1
+                    mass 0.434000
+                    centerOfMass [ 0.000000 0.030000 0.090000 ]
+                    inertiaMatrix [
+                      5.596220e-03 3.608400e-03 6.086000e-03
+                      0.000000e+00 0.000000e+00 0.000000e+00
+                    ]
+                  }
+                }
+              }
+            ]
+            name "L_bogey_link"
+            boundingObject USE bogie
+            physics Physics {
+              density -1
+              mass 0.531000
+              centerOfMass [ 0.000000 0.015900 0.049100 ]
+              inertiaMatrix [
+                7.470000e-02 6.950000e-02 6.300000e-03
+                -1.500000e-03 -5.300000e-03 1.820000e-02
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.318760 0.000000 -0.221520
+            }
+            device [
+              RotationalMotor {
+                name "two_steering_joint"
+                maxVelocity 1.0
+                minPosition -1.5707
+                maxPosition 1.5707
+                maxTorque 20.0
+              }
+              PositionSensor {
+                name "two_steering_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.318760 0.000000 -0.221520
+              children [
+                Shape {
+                  appearance DEF two_wheel_mount_material PBRAppearance {
+                    baseColor 1.000000 0.000000 0.000000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry USE wheel_mount
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 1.000000 -0.000096
+                    anchor 0.000000 0.000000 -0.075430
+                  }
+                  device [
+                    RotationalMotor {
+                      name "two_drive_joint"
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "two_drive_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 -0.075430
+                    rotation 1.000000 0.000000 0.000000 1.570700
+                    contactMaterial "Wheel"
+                    children [
+                      Shape {
+                        appearance DEF two_wheel_material PBRAppearance {
+                          baseColor 1.000000 0.000000 0.000000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry Cylinder {
+                          radius 0.1029
+                          height 0.0495
+                        }
+                      }
+                    ]
+                    name "two_wheel"
+                    boundingObject Cylinder {
+                      radius 0.1029
+                      height 0.0495
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.898160
+                      centerOfMass [ 0.000000 0.000000 0.000000 ]
+                      inertiaMatrix [
+                        1.458330e-01 1.458330e-01 1.250000e-01
+                        0.000000e+00 0.000000e+00 0.000000e+00
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "two_wheel_mount"
+              boundingObject USE wheel_mount
+              physics Physics {
+                density -1
+                mass 0.434000
+                centerOfMass [ 0.000000 0.030000 0.090000 ]
+                inertiaMatrix [
+                  5.596220e-03 3.608400e-03 6.086000e-03
+                  0.000000e+00 0.000000e+00 0.000000e+00
+                ]
+              }
+            }
+          }
+        ]
+        name "L_rocker_link"
+        boundingObject USE rocker
+        physics Physics {
+          density -1
+          mass 2.691650
+          centerOfMass [ 0.006700 -0.013205 0.034620 ]
+          inertiaMatrix [
+            7.620000e-02 7.410000e-02 1.690000e-02
+            1.800000e-03 3.000000e-04 -8.200000e-03
+          ]
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE rover_chassis
+    physics Physics {
+      density -1
+      mass 20.000000
+      centerOfMass [ 0.143000 0.000000 0.083500 ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[1.092s] Invoking command in '/home/u1/ros2_ws/src/rover_package': PYTHONPATH=/home/u1/ros2_ws/src/rover_package/build/rover_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/rover_package build --build-base /home/u1/ros2_ws/src/rover_package/build/rover_package/build install --record /home/u1/ros2_ws/src/rover_package/build/rover_package/install.log --single-version-externally-managed install_data
+[1.403s] running egg_info
+[1.404s] writing build/rover_package/rover_package.egg-info/PKG-INFO
+[1.407s] writing dependency_links to build/rover_package/rover_package.egg-info/dependency_links.txt
+[1.407s] writing entry points to build/rover_package/rover_package.egg-info/entry_points.txt
+[1.407s] writing requirements to build/rover_package/rover_package.egg-info/requires.txt
+[1.407s] writing top-level names to build/rover_package/rover_package.egg-info/top_level.txt
+[1.409s] reading manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+[1.410s] adding license file 'LICENSE'
+[1.410s] writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+[1.411s] running build
+[1.411s] running build_py
+[1.411s] copying rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+[1.412s] running install
+[1.412s] running install_lib
+[1.414s] copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+[1.415s] byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/my_robot_driver.py to my_robot_driver.cpython-310.pyc
+[1.416s] running install_data
+[1.417s] running install_egg_info
+[1.418s] removing '/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info' (and everything under it)
+[1.420s] Copying build/rover_package/rover_package.egg-info to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info
+[1.422s] running install_scripts
+[1.448s] Installing main_run script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+[1.448s] Installing my_robot_driver script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+[1.449s] writing list of installed files to '/home/u1/ros2_ws/src/rover_package/build/rover_package/install.log'
+[1.480s] Invoked command in '/home/u1/ros2_ws/src/rover_package' returned '0': PYTHONPATH=/home/u1/ros2_ws/src/rover_package/build/rover_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/rover_package build --build-base /home/u1/ros2_ws/src/rover_package/build/rover_package/build install --record /home/u1/ros2_ws/src/rover_package/build/rover_package/install.log --single-version-externally-managed install_data

@@ -1,0 +1,46 @@
+running egg_info
+creating build/rover_package/rover_package.egg-info
+writing build/rover_package/rover_package.egg-info/PKG-INFO
+writing dependency_links to build/rover_package/rover_package.egg-info/dependency_links.txt
+writing entry points to build/rover_package/rover_package.egg-info/entry_points.txt
+writing requirements to build/rover_package/rover_package.egg-info/requires.txt
+writing top-level names to build/rover_package/rover_package.egg-info/top_level.txt
+writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+reading manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build
+creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib
+creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+copying rover_package/__init__.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+copying rover_package/main_run.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+copying rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+running install
+running install_lib
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/__init__.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/main_run.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/main_run.py to main_run.cpython-310.pyc
+byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/my_robot_driver.py to my_robot_driver.cpython-310.pyc
+running install_data
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index/packages
+copying resource/rover_package -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index/packages
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/launch
+copying launch/robot_launch.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/launch
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/worlds
+copying worlds/my_world.wbt -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/worlds
+creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/resource
+copying resource/my_robot.urdf -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/resource
+copying package.xml -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package
+running install_egg_info
+Copying build/rover_package/rover_package.egg-info to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info
+running install_scripts
+Installing main_run script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+Installing my_robot_driver script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+writing list of installed files to '/home/u1/ros2_ws/src/rover_package/build/rover_package/install.log'

@@ -1,0 +1,21 @@
+running egg_info
+writing build/rover_package/rover_package.egg-info/PKG-INFO
+writing dependency_links to build/rover_package/rover_package.egg-info/dependency_links.txt
+writing entry points to build/rover_package/rover_package.egg-info/entry_points.txt
+writing requirements to build/rover_package/rover_package.egg-info/requires.txt
+writing top-level names to build/rover_package/rover_package.egg-info/top_level.txt
+reading manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info' (and everything under it)
+Copying build/rover_package/rover_package.egg-info to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info
+running install_scripts
+Installing main_run script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+Installing my_robot_driver script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+writing list of installed files to '/home/u1/ros2_ws/src/rover_package/build/rover_package/install.log'

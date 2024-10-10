@@ -1,0 +1,4 @@
+[console_scripts]
+main_run = rover_package.main_run:main
+my_robot_driver = rover_package.my_robot_driver:main
+

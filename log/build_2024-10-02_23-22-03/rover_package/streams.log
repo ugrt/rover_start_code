@@ -1,0 +1,48 @@
+[0.567s] Invoking command in '/home/u1/ros2_ws/src/rover_package': PYTHONPATH=/home/u1/ros2_ws/src/rover_package/build/rover_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/rover_package build --build-base /home/u1/ros2_ws/src/rover_package/build/rover_package/build install --record /home/u1/ros2_ws/src/rover_package/build/rover_package/install.log --single-version-externally-managed install_data
+[0.734s] running egg_info
+[0.734s] creating build/rover_package/rover_package.egg-info
+[0.734s] writing build/rover_package/rover_package.egg-info/PKG-INFO
+[0.735s] writing dependency_links to build/rover_package/rover_package.egg-info/dependency_links.txt
+[0.735s] writing entry points to build/rover_package/rover_package.egg-info/entry_points.txt
+[0.735s] writing requirements to build/rover_package/rover_package.egg-info/requires.txt
+[0.735s] writing top-level names to build/rover_package/rover_package.egg-info/top_level.txt
+[0.735s] writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+[0.736s] reading manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+[0.736s] adding license file 'LICENSE'
+[0.737s] writing manifest file 'build/rover_package/rover_package.egg-info/SOURCES.txt'
+[0.737s] running build
+[0.737s] running build_py
+[0.737s] creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build
+[0.737s] creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib
+[0.737s] creating /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+[0.737s] copying rover_package/__init__.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+[0.738s] copying rover_package/main_run.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+[0.738s] copying rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package
+[0.738s] running install
+[0.738s] running install_lib
+[0.739s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+[0.739s] copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/__init__.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+[0.739s] copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/main_run.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+[0.739s] copying /home/u1/ros2_ws/src/rover_package/build/rover_package/build/lib/rover_package/my_robot_driver.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package
+[0.739s] byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/__init__.py to __init__.cpython-310.pyc
+[0.739s] byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/main_run.py to main_run.cpython-310.pyc
+[0.740s] byte-compiling /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package/my_robot_driver.py to my_robot_driver.cpython-310.pyc
+[0.740s] running install_data
+[0.740s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index
+[0.740s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index
+[0.741s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index/packages
+[0.741s] copying resource/rover_package -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/ament_index/resource_index/packages
+[0.741s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/launch
+[0.741s] copying launch/robot_launch.py -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/launch
+[0.741s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/worlds
+[0.741s] copying worlds/my_world.wbt -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/worlds
+[0.742s] creating /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/resource
+[0.742s] copying resource/my_robot.urdf -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package/resource
+[0.742s] copying package.xml -> /home/u1/ros2_ws/src/rover_package/install/rover_package/share/rover_package
+[0.742s] running install_egg_info
+[0.743s] Copying build/rover_package/rover_package.egg-info to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages/rover_package-0.0.0-py3.10.egg-info
+[0.744s] running install_scripts
+[0.757s] Installing main_run script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+[0.757s] Installing my_robot_driver script to /home/u1/ros2_ws/src/rover_package/install/rover_package/lib/rover_package
+[0.758s] writing list of installed files to '/home/u1/ros2_ws/src/rover_package/build/rover_package/install.log'
+[0.772s] Invoked command in '/home/u1/ros2_ws/src/rover_package' returned '0': PYTHONPATH=/home/u1/ros2_ws/src/rover_package/build/rover_package/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/u1/ros2_ws/src/rover_package/install/rover_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/rover_package build --build-base /home/u1/ros2_ws/src/rover_package/build/rover_package/build install --record /home/u1/ros2_ws/src/rover_package/build/rover_package/install.log --single-version-externally-managed install_data
